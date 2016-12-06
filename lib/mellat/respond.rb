@@ -16,18 +16,12 @@ module Mellat
     private
     def perform_validation
       raise ArgumentError, 'not a valid response' if @response.nil?
-      body = @response[:send_simple_by_apikey_response] 
-   
-      @status    = body[:status].to_i
-      @statusmessage    = body[:statusmessage]
-      unless @status == 200
-        @valid = false
-      else
-        @valid=true
-      end
-
+      @status = @response[:bp_pay_request_response][:return]
+      @valid  = (@status==0)
+      
     end
-    
+
+
    end
 
 
@@ -36,4 +30,3 @@ module Mellat
   end
 
 
-end

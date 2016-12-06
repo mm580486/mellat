@@ -7,19 +7,25 @@ module Mellat
     attr_reader   :respond
 
     def initialize(args = {})
-      @orderId          = args.fetch[:orderId] 
-      @amount	        = args.fetch[:amount]
-      @localDate  	    = args.fetch[:localDate] || Time.now.strftime("%Y%d%m")
-      @localTime   		= args.fetch[:localTime] || Time.now.strftime("%H%M%S")
-      @additionalData   = args.fetch[:additionalData]
-      @payerId			= args.fetch[:payerId]
-      @callBackUrl		= Mellat.configuration.callBackUrl || args.fetch[:callBackUrl]
-      @wsdl       		= Savon.client(wsdl: Mellat.configuration.wsdl, pretty_print_xml: true)
+      @orderId          = args.fetch(:orderId)
+      @amount	        = args.fetch(:amount)
+      @localDate  	    = args.fetch(:localDate,Time.now.strftime("%Y%d%m"))
+      @localTime   		= args.fetch(:localTime,Time.now.strftime("%H%M%S"))
+      @additionalData   = args.fetch(:additionalData,'')
+      @payerId			= args.fetch(:payerId)
+      @callBackUrl		= args.fetch(:callBackUrl,Mellat.configuration.callBackUrl)
+      @terminalId		= Mellat.configuration.terminalId
+      @userName		    = Mellat.configuration.userName
+      @userPassword		= Mellat.configuration.userPassword
+      @wsdl       		= Savon.client(wsdl: Mellat.configuration.wsdl, pretty_print_xml: true,namespace: 'http://interfaces.core.sw.bps.com/')
       @response   	    = RespondBpPayRequest.new
     end
 
     def call
-      response = @wsdl.call :BpPayRequest, message: {
+      response = @wsdl.call :bp_pay_request, message: {
+      	'terminalId'     => @terminalId,
+      	'userName'       => @userName,
+      	'userPassword'   => @userPassword,
         'orderId'        => @orderId,
         'amount'         => @amount,
         'localDate'      =>	@localDate,
