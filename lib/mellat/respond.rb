@@ -13,7 +13,7 @@ module Mellat
     end
 
     def redirect_to_pay
-    	render js: "postRefId('#{@RefID}')"
+    	render js: "vendor/assets/javascripts/bp-pay"
     end
 
 
@@ -25,8 +25,6 @@ module Mellat
       @valid  = (@status.split(',')[0]==0)
       @RefID  = @status.split(',')[1] if @valid
     end
-
-
 
    end
   end
