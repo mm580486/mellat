@@ -7,7 +7,11 @@ module Mellat
       def copy_initializer
         template "mellat_initializer.rb", "config/initializers/mellat.rb"
 
-        puts "Install complete! Truly Outrageous!"
+         puts <<~EOF
+        \e[36mInstall complete 👻 \e[0m
+          For report issues or suggest contact me on twitter: \e[32m@mm580486\e[0m 
+         EOF
+
       end
 
     end
