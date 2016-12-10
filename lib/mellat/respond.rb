@@ -12,11 +12,10 @@ module Mellat
       @valid
     end
 
-    def redirect_to_pay
-    	render js: "vendor/assets/javascripts/bp-pay"
+    def refID
+    	@RefID.to_s
     end
-
-
+    
     private
 
     def perform_validation

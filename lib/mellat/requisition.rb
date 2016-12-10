@@ -8,16 +8,16 @@ module Mellat
 
     def initialize(args = {})
       @orderId          = args.fetch(:orderId)
-      @amount	        = args.fetch(:amount)
+      @amount	          = args.fetch(:amount)
       @localDate  	    = args.fetch(:localDate,Time.now.strftime("%Y%d%m"))
-      @localTime   		= args.fetch(:localTime,Time.now.strftime("%H%M%S"))
+      @localTime   		  = args.fetch(:localTime,Time.now.strftime("%H%M%S"))
       @additionalData   = args.fetch(:additionalData,' ')
-      @payerId		    = args.fetch(:payerId,0)
-      @callBackUrl		= args.fetch(:callBackUrl,Mellat.configuration.callBackUrl)
-      @terminalId		= Mellat.configuration.terminalId
-      @userName		    = Mellat.configuration.userName
-      @userPassword		= Mellat.configuration.userPassword
-      @wsdl       		= Savon.client(wsdl: Mellat.configuration.wsdl, pretty_print_xml: true,namespace: 'http://interfaces.core.sw.bps.com/')
+      @payerId		      = args.fetch(:payerId,0)
+      @callBackUrl		  = args.fetch(:callBackUrl,Mellat.configuration.callBackUrl)
+      @terminalId		    = Mellat.configuration.terminalId
+      @userName		      = Mellat.configuration.userName
+      @userPassword		  = Mellat.configuration.userPassword
+      @wsdl       		  = Savon.client(wsdl: Mellat.configuration.wsdl, pretty_print_xml: true,namespace: 'http://interfaces.core.sw.bps.com/')
       @response   	    = RespondBpPayRequest.new()
     end
 
