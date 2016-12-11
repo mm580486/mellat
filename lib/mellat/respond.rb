@@ -15,15 +15,21 @@ module Mellat
     def refID
     	@RefID.to_s
     end
-    
+
     private
 
     def perform_validation
       raise ArgumentError, 'not a valid response' if @response.nil?
       @status = @response[:bp_pay_request_response][:return]
-      @valid  = (@status.split(',')[0]==0)
+      @valid  = (@status.split(',')[0].to_i==0)
       @RefID  = @status.split(',')[1] if @valid
     end
 
    end
+
+
+   
+
+
+   
   end
