@@ -31,8 +31,8 @@ module Mellat
         'localDate'      => @localDate.to_s,
         'localTime'      => @localTime.to_s,
         'additionalData' => @additionalData,
-        'payerId' 		 => @payerId,
-        'callBackUrl'	 => @callBackUrl
+        'payerId' 		   => @payerId,
+        'callBackUrl'	   => @callBackUrl
       }
       @response.validate(response.body)
     end

@@ -1,6 +1,7 @@
 module Mellat
 
   class RespondBpPayRequest
+  	
     attr_reader :respond, :status,:statusmessage
     def validate(response = nil)
       @response = response
@@ -12,8 +13,13 @@ module Mellat
       @valid
     end
 
+<<<<<<< HEAD
     def refID
     	@RefID.to_s
+=======
+    def redirect_to_pay
+      return "postRefId('#{@RefID}');"
+>>>>>>> origin/master
     end
 
     private
