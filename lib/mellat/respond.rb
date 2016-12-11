@@ -13,14 +13,10 @@ module Mellat
       @valid
     end
 
-<<<<<<< HEAD
+
     def refID
     	@RefID.to_s
-=======
-    def redirect_to_pay
-      return "postRefId('#{@RefID}');"
->>>>>>> origin/master
-    end
+
 
     private
 
