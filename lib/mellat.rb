@@ -1,6 +1,7 @@
 require "mellat/version"
 require "mellat/requisition"
 require "mellat/respond"
+require "mellat/plug/bank_name"
 
 module Mellat
 
