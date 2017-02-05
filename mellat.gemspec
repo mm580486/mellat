@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
   # to allow pushing to a single host or delete this section to allow pushing to any host.
 
    spec.add_dependency 'savon', ['~> 2.0']
+   spec.add_dependency 'i18n', ['~> 0.8.0']
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})

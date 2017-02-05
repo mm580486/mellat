@@ -16,7 +16,7 @@ module Mellat
 
     def refID
     	@RefID.to_s
-
+    end
 
     private
 
@@ -27,11 +27,6 @@ module Mellat
       @RefID  = @status.split(',')[1] if @valid
     end
 
-   end
-
-
-   
-
-
-   
   end
+
+end
