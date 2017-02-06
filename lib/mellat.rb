@@ -1,7 +1,7 @@
 require "mellat/version"
 require "mellat/requisition"
 require "mellat/respond"
-require "mellat/plug/bank_name"
+require "mellat/plug/bank_helper"
 
 module Mellat
 
@@ -15,6 +15,7 @@ module Mellat
 
   class Configuration
     attr_accessor :terminalId, :userName, :userPassword, :wsdl, :callBackUrl
+    
     def initialize
 
     end
