@@ -14,9 +14,9 @@ module Mellat
       @additionalData   = args.fetch(:additionalData,' ')
       @payerId		      = args.fetch(:payerId,0)
       @callBackUrl		  = args.fetch(:callBackUrl,Mellat.configuration.callBackUrl)
-      @terminalId		    = Mellat.configuration.terminalId
-      @userName		      = Mellat.configuration.userName
-      @userPassword		  = Mellat.configuration.userPassword
+      @terminalId		    = args.fetch(:terminalId,Mellat.configuration.terminalId) 
+      @userName		      = args.fetch(:userName,Mellat.configuration.userName) 
+      @userPassword		  = args.fetch(:userPassword,Mellat.configuration.userPassword)
       @wsdl       		  = Savon.client(wsdl: Mellat.configuration.wsdl, pretty_print_xml: true,namespace: 'http://interfaces.core.sw.bps.com/')
       @response   	    = RespondBpPayRequest.new()
     end
